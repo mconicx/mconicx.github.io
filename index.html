@@ -98,7 +98,7 @@
             margin: 0;
         }
         li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         .btn {
             display: inline-block;
@@ -205,6 +205,19 @@
             gap: 15px 25px;
             margin-top: 15px;
         }
+        .job-date {
+            color: #EDBF43;
+            font-size: 0.92em;
+            font-weight: 600;
+        }
+        blockquote {
+            margin: 12px 0;
+            padding: 10px 16px;
+            border-left: 3px solid #EDBF43;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
 
         /* Mobile Scaling */
         @media (max-width: 768px) {
@@ -266,9 +279,9 @@
                 <h2>About Me</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>I am a software engineer from Serbia (open to EU relocation and remote roles) with commercial development experience since 2018 across native C++ desktop/graphics software and C# / .NET backend systems.</p>
-                        <p>My core focus is building reliable, high-performance applications: low-level C++ tools using Win32, OpenGL, and Dear ImGui, hardware-interfacing telemetry software over Bluetooth/serial protocols, and full-stack web backends powered by ASP.NET, REST APIs, and SQL Server.</p>
-                        <p>Since 2021, I have delivered custom software solutions for international clients via Upwork and direct contracts, alongside on-site commercial development migrating legacy systems to modern cross-platform architectures.</p>
+                        <p>I am a software engineer from Serbia (open to EU relocation and remote roles) with commercial development experience since 2018 and 25+ completed contracts on Upwork.</p>
+                        <p>My core focus is 3D graphics &amp; native C++ systems engineering (DirectX, OpenGL / OpenGL ES, 2D Shaders, Point Cloud Library / OpenTK, Win32 IPC, C++ DLLs, ASIO audio, Dear ImGui) alongside C# / .NET backend, Windows Services, and runtime code compilation.</p>
+                        <p>I regularly step into complex or undocumented codebases to extend engines, build native-to-.NET integrations, and deliver reliable production software for international clients.</p>
                     </div>
                     <img
                         class="profile-img"
@@ -283,26 +296,59 @@
             </div>
 
             <div class="panel">
-                <h2>Experience</h2>
+                <h2>Commercial Experience (2018 &ndash; Present)</h2>
                 <ul>
-                    <li>&bull; <strong>Independent Software Engineer</strong> &mdash; Upwork &amp; Direct Contracts (2018 &ndash; Present)
-                        <br><span style="opacity:0.9;">Built custom C++ native desktop tools, DLL integrations, Bluetooth hardware interfaces, and .NET/SQL applications for international clients.</span>
+                    <li>
+                        &bull; <strong>C# / .NET Windows Service Implementation</strong> <span class="job-date">(Oct 2025)</span><br />
+                        <span style="opacity:0.9;">Engineered a startup-initialized Windows background service in C# / .NET Framework with native C++ integration.</span>
                     </li>
-                    <li style="margin-top: 12px;">&bull; <strong>Full-Stack .NET Developer (On-Site)</strong> &mdash; Commercial Web Migration
-                        <br><span style="opacity:0.9;">Audited and documented an undocumented legacy Unity/server backend, then built a cross-platform ASP.NET, MS SQL, REST, and WebGL/HTML5 client.</span>
+                    <li>
+                        &bull; <strong>C++ / DirectX Graphics Engine Developer (Long-Term Client Engagement)</strong> <span class="job-date">(Feb 2022 &ndash; Mar 2024)</span><br />
+                        <span style="opacity:0.9;">Two-year engagement across a weekly retainer and milestone contracts improving, extending, and integrating a proprietary Visual C++ / DirectX graphics engine with Win32 API and C#/.NET tooling.</span>
+                    </li>
+                    <li>
+                        &bull; <strong>ASIO Audio Record &amp; Playback Software</strong> <span class="job-date">(Mar 2024)</span><br />
+                        <span style="opacity:0.9;">Built a Windows audio capture and playback application interfacing with low-latency ASIO drivers in C++ and .NET.</span>
+                    </li>
+                    <li>
+                        &bull; <strong>3D Web Architecture Sketcher</strong> <span class="job-date">(Jun 2023 &ndash; Jan 2024)</span><br />
+                        <span style="opacity:0.9;">Developed browser-based 3D architectural modeling workflows using Three.js, Babylon.js, WebGL/OpenGL concepts, and JavaScript.</span>
+                    </li>
+                    <li>
+                        &bull; <strong>Windows Systems, Win32 IPC &amp; Desktop Applications</strong> <span class="job-date">(Dec 2022 &ndash; Sep 2023)</span><br />
+                        <span style="opacity:0.9;">Delivered a C++ virtual-printer caller detection DLL for .NET interop, C Win32 IPC using named pipes and shared memory, Delphi 3D canvas drawing software, scheduled Windows macro automation, and staff payroll/clock-in desktop software.</span>
+                    </li>
+                    <li>
+                        &bull; <strong>.NET Dynamic DLL Compiler, Class Libraries &amp; 3D Point Cloud Tooling</strong> <span class="job-date">(Jun 2022 &ndash; Dec 2022)</span><br />
+                        <span style="opacity:0.9;">Built a programmatic .NET source-code-to-DLL compiler, extended production .NET class libraries, and delivered a 3D Point Cloud Viewer using C#/VB.NET, PCL (Point Cloud Library), and OpenTK.</span>
+                    </li>
+                    <li>
+                        &bull; <strong>OpenGL 3D Visualization, 2D Shaders &amp; Native Android Apps</strong> <span class="job-date">(Jun 2021 &ndash; Mar 2022)</span><br />
+                        <span style="opacity:0.9;">Developed modular OpenGL 3D movement demos, custom 2D camera filter shaders, a native Android OpenGL ES drawing app, and a live-streaming Chess Clock Android application.</span>
+                    </li>
+                    <li>
+                        &bull; <strong>Full-Stack .NET Developer (On-Site Commercial Role)</strong><br />
+                        <span style="opacity:0.9;">Reverse-engineered and documented an undocumented Unity/server backend, then built a cross-platform ASP.NET, MS SQL Server, REST API, and WebGL/HTML5 client.</span>
                     </li>
                 </ul>
             </div>
 
             <div class="panel">
+                <h2>Client Feedback Highlights</h2>
+                <blockquote>&ldquo;The job was quite a complex one but Marko&rsquo;s code worked at the first time and I only needed two minor improvements to perfect it, and Marko completed them very quickly.&rdquo; &mdash; Programmatic .NET-to-DLL Compiler Client</blockquote>
+                <blockquote>&ldquo;Marko used OpenGL to develop a demo application for us. His work with OpenGL was outstanding and well documented. He notably maintained demo code reasonably separate from the original.&rdquo; &mdash; 3D OpenGL Client</blockquote>
+                <blockquote>&ldquo;Marco is a professional. He submitted quality work on time, had good communications and was available for support and questions.&rdquo; &mdash; 3D Point Cloud Viewer (PCL) Client</blockquote>
+            </div>
+
+            <div class="panel">
                 <h2>Technical Skills</h2>
                 <ul>
-                    <li>&bull; <strong>C / C++:</strong> Modern C++, OOP, memory management, multithreading, Win32 API, DLLs, GCC/Clang, MSVC</li>
-                    <li>&bull; <strong>Graphics &amp; UI:</strong> OpenGL / OpenGL ES, Dear ImGui, WebGL, WinForms, WPF</li>
-                    <li>&bull; <strong>.NET &amp; Backend:</strong> C#, .NET Core / Framework, ASP.NET (MVC, Razor), REST APIs, Entity Framework</li>
+                    <li>&bull; <strong>C / C++:</strong> Modern C++, Win32 API, DirectX, OpenGL / OpenGL ES, GLSL 2D Shaders, Dear ImGui, DLLs, Named Pipes &amp; Shared Memory IPC, ASIO Audio, GCC/Clang, MSVC</li>
+                    <li>&bull; <strong>.NET &amp; Backend:</strong> C#, .NET Framework / .NET Core, Windows Services, Programmatic .NET-to-DLL Compilation, ASP.NET (MVC, Razor), REST APIs, Entity Framework, OpenTK, PCL, WinForms, WPF</li>
+                    <li>&bull; <strong>Web &amp; 3D Graphics:</strong> Three.js, Babylon.js, WebGL, HTML5, CSS3, JavaScript</li>
                     <li>&bull; <strong>Databases:</strong> Microsoft SQL Server, MySQL</li>
-                    <li>&bull; <strong>Mobile &amp; Hardware:</strong> Android SDK (Java), Bluetooth SPP (HC-05/HC-06), Arduino / serial protocols</li>
-                    <li>&bull; <strong>Web &amp; Tooling:</strong> HTML5, CSS3, JavaScript, Git, Linux &amp; Windows environments</li>
+                    <li>&bull; <strong>Mobile &amp; Hardware:</strong> Android SDK (Java, GLES), Bluetooth SPP (HC-05/HC-06), Arduino / serial telemetry</li>
+                    <li>&bull; <strong>Other &amp; Tooling:</strong> Delphi (3D Canvas / VCL), Git, Windows, Linux</li>
                 </ul>
             </div>
 
@@ -312,7 +358,7 @@
                     <li>E-Mail: <a href="mailto:mconicsb@gmail.com">mconicsb@gmail.com</a></li>
                     <li>GitHub: <a href="https://github.com/mconicx" target="_blank" rel="noopener noreferrer">github.com/mconicx</a></li>
                     <li>LinkedIn: <a href="https://www.linkedin.com/in/mconicdev/" target="_blank" rel="noopener noreferrer">linkedin.com/in/mconicdev</a></li>
-                    <li>Upwork: <a href="https://www.upwork.com/freelancers/~018bc3b49c7749cb14" target="_blank" rel="noopener noreferrer">Upwork Profile</a></li>
+                    <li>Upwork (25+ Completed Contracts): <a href="https://www.upwork.com/freelancers/~018bc3b49c7749cb14" target="_blank" rel="noopener noreferrer">Upwork Profile</a></li>
                 </ul>
             </div>
         </section>
@@ -320,12 +366,29 @@
         <!-- TAB 2: PROJECTS -->
         <section id="projects">
             <div class="panel">
-                <h2 id="project-list">Selected Engineering Projects</h2>
+                <h2 id="project-list">Selected Engineering Work</h2>
                 <ul>
+                    <li>&bull; <a href="#directx">Proprietary C++ / DirectX Graphics Engine (2-Year Client Engagement)</a></li>
                     <li>&bull; <a href="#euromag">EUROMAG-3D &mdash; Geophysical Telemetry &amp; 3D Visualization Suite</a></li>
                     <li>&bull; <a href="#modeler">Native 3D Modeler &amp; Mesh Editor (C++ / OpenGL / Dear ImGui)</a></li>
+                    <li>&bull; <a href="#pointcloud">3D Point Cloud Viewer, OpenGL Shaders &amp; 3D Web Sketcher</a></li>
+                    <li>&bull; <a href="#systems">.NET Dynamic DLL Compiler, Windows Services &amp; Win32 Systems Work</a></li>
                     <li>&bull; <a href="#webmigration">Cross-Platform Web Client &amp; ASP.NET Backend Migration</a></li>
                 </ul>
+            </div>
+
+            <div class="panel">
+                <p id="directx"><a href="#project-list">&uarr; Back to projects list</a></p>
+                <h2>Proprietary C++ / DirectX Graphics Engine</h2>
+                <h3>Stack: Visual C++, DirectX, Win32 API, C# (.NET Framework) | Feb 2022 &ndash; Mar 2024</h3>
+                <p>
+                    Two-year sustained engagement (weekly retainer and follow-on milestone contracts) extending, debugging,
+                    and improving a proprietary real-time C++ and DirectX graphics engine. Included Win32 API integration
+                    and interoperability with C# / .NET desktop tooling.
+                </p>
+                <div class="project-links">
+                    <a class="btn" href="https://www.upwork.com/freelancers/~018bc3b49c7749cb14" target="_blank" rel="noopener noreferrer">Verified on Upwork</a>
+                </div>
             </div>
 
             <div class="panel">
@@ -378,6 +441,31 @@
             </div>
 
             <div class="panel">
+                <p id="pointcloud"><a href="#project-list">&uarr; Back to projects list</a></p>
+                <h2>3D Graphics, Point Cloud &amp; Shader Projects (2021 &ndash; 2024)</h2>
+                <h3>Stack: OpenGL / GLES, PCL (Point Cloud Library), OpenTK, Three.js, Babylon.js, Delphi</h3>
+                <ul>
+                    <li>&bull; <strong>3D Web Architecture Sketcher (2023&ndash;2024):</strong> Browser-based 3D architectural modeling software built with Three.js, Babylon.js, and JavaScript.</li>
+                    <li>&bull; <strong>3D Point Cloud Viewer &amp; OpenTK Visualization (2022):</strong> Built a Point Cloud Viewer integrating PCL with .NET and extended OpenTK 3D models with directional vector arrow overlays.</li>
+                    <li>&bull; <strong>OpenGL 3D Demo &amp; 2D Camera Filter Shaders (2021&ndash;2022):</strong> Developed modular, documented OpenGL 3D movement demos cleanly decoupled from host codebases, plus custom 2D shaders for real-time camera filters.</li>
+                    <li>&bull; <strong>Delphi 3D Canvas Drawing &amp; Android GLES Apps (2021&ndash;2023):</strong> Built 3D canvas drawing software in Delphi and a native Android OpenGL ES drawing app.</li>
+                </ul>
+            </div>
+
+            <div class="panel">
+                <p id="systems"><a href="#project-list">&uarr; Back to projects list</a></p>
+                <h2>.NET Compilation, Windows Services &amp; Win32 Systems Work</h2>
+                <h3>Stack: C#, C++, C, .NET Framework, Win32 API, ASIO</h3>
+                <ul>
+                    <li>&bull; <strong>C# / C++ Windows Service Implementation (Oct 2025):</strong> Built a startup-initialized Windows background service in C#/.NET Framework with native C++ integration.</li>
+                    <li>&bull; <strong>Programmatic .NET Source-to-DLL Compiler (2022):</strong> Engineered an automated .NET tool to compile C#/.NET source code dynamically into standalone DLL assemblies at runtime.</li>
+                    <li>&bull; <strong>ASIO Audio Record &amp; Playback (2024):</strong> Developed low-latency Windows audio capture and playback software using ASIO drivers.</li>
+                    <li>&bull; <strong>Virtual Printer Interception DLL (2023):</strong> Native C++ DLL detecting calling application processes on Windows virtual printers, consumed by a .NET host client.</li>
+                    <li>&bull; <strong>Win32 IPC &amp; Desktop Automation (2022&ndash;2023):</strong> Implemented C Win32 IPC using named pipes and shared memory, scheduled Windows macro automation, and staff payroll/clock-in desktop software.</li>
+                </ul>
+            </div>
+
+            <div class="panel">
                 <p id="webmigration"><a href="#project-list">&uarr; Back to projects list</a></p>
                 <h2>Cross-Platform Web Client &amp; ASP.NET Backend Migration</h2>
                 <h3>Stack: C#, ASP.NET, Razor Views, MS SQL Server, Entity Framework, REST API, JavaScript, WebGL</h3>
@@ -398,11 +486,11 @@
             <div class="panel">
                 <h2>Availability &amp; Collaboration</h2>
                 <p>
-                    I am currently open to <strong>full-time engineering roles</strong> (remote within Europe or relocation with work-permit sponsorship),
-                    as well as select <strong>B2B and Upwork contracts</strong> in C++ desktop/systems development and .NET backend engineering.
+                    I am open to <strong>full-time engineering roles</strong> (remote within Europe or relocation with work-permit sponsorship),
+                    as well as select <strong>B2B and Upwork contracts</strong> in C++ graphics/systems development and .NET backend engineering.
                 </p>
                 <p>
-                    Based in Serbia (CET timezone) and fluent in English, I work comfortably with distributed teams, existing codebases,
+                    Based in Serbia (CET timezone) and fluent in English, I work comfortably with distributed teams, legacy codebases,
                     and clear technical specifications.
                 </p>
                 <br />
@@ -410,7 +498,7 @@
                     <li>&bull; <strong>Direct Email:</strong> <a href="mailto:mconicsb@gmail.com">mconicsb@gmail.com</a></li>
                     <li>&bull; <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mconicdev/" target="_blank" rel="noopener noreferrer">linkedin.com/in/mconicdev</a></li>
                     <li>&bull; <strong>GitHub:</strong> <a href="https://github.com/mconicx" target="_blank" rel="noopener noreferrer">github.com/mconicx</a></li>
-                    <li>&bull; <strong>Upwork Direct Contract:</strong> <a href="https://www.upwork.com/freelancers/~018bc3b49c7749cb14" target="_blank" rel="noopener noreferrer">View Upwork Profile</a></li>
+                    <li>&bull; <strong>Upwork Profile (25+ Completed Jobs):</strong> <a href="https://www.upwork.com/freelancers/~018bc3b49c7749cb14" target="_blank" rel="noopener noreferrer">View Upwork Profile</a></li>
                 </ul>
             </div>
         </section>
@@ -418,8 +506,8 @@
     </div>
 
     <div class="decorative">
-        <h3>Native Performance &amp; Reliable Backend Engineering</h3>
-        <p>C++ &bull; OpenGL &bull; .NET / C# &bull; SQL &mdash; Commercial software development since 2018</p>
+        <h3>Native Performance, 3D Graphics &amp; Reliable .NET Engineering</h3>
+        <p>C++ &bull; DirectX / OpenGL &bull; .NET / C# &bull; SQL &mdash; 25+ Upwork Contracts &amp; Commercial Software Since 2018</p>
     </div>
 
     <footer>
