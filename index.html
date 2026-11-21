@@ -3,636 +3,456 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Marko Conic — Software Engineer specializing in C++ (Systems, OpenGL, Cross-Platform) and .NET Backend (C#, ASP.NET Core, SQL).">
-    <title>Marko Conic | Software Engineer (C++ &amp; .NET)</title>
+    <title>MConic Dev &mdash; Marko Conic | Software Engineer</title>
     <style>
-        :root {
-            --bg: #0b1120;
-            --bg-elevated: #111827;
-            --card: #162033;
-            --border: #26334d;
-            --text: #e5e7eb;
-            --muted: #9ca3af;
-            --accent: #38bdf8;
-            --accent-hover: #0ea5e9;
-            --tag-bg: rgba(56, 189, 248, 0.12);
-            --radius: 12px;
-            --max-w: 1080px;
-        }
-
         *, *::before, *::after {
             box-sizing: border-box;
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.65;
-            -webkit-font-smoothing: antialiased;
+            padding: 0;
+            background: linear-gradient(to bottom right, #2c6566, #25bdb0);
+            color: #fff;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.6;
         }
-
-        a {
-            color: var(--accent);
+        header {
+            background: linear-gradient(to bottom right, #1f344d, #2c6566);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            border-bottom: 2px solid #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 15px;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+        }
+        h1 {
+            margin: 0;
+            padding-right: 30px;
+            color: #fff;
+            white-space: nowrap;
+        }
+        h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        h3 {
+            color: #fff;
+        }
+        .tab-bar {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .tab-bar .tab {
+            flex: 1;
+            padding: 15px 30px;
+            background-color: #BA8C00;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.75s;
+            text-align: center;
+            font-size: 120%;
+            user-select: none;
+        }
+        #tab-brief {
+            border-radius: 45px 0px 0px 12px;
+        }
+        #tab-contact {
+            border-radius: 0px 45px 12px 0px;
+        }
+        .tab-bar .tab:hover {
+            background-color: #FFCC43;
+        }
+        .tab-bar .tab.active {
+            background-color: #EDBF43;
+        }
+        .panel {
+            padding: 24px;
+            margin: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: none;
+        }
+        .container {
+            max-width: 1600px;
+            margin: auto;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #EDBF43;
+            color: #1f344d;
+            font-weight: bold;
             text-decoration: none;
-            transition: color 0.2s ease;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-
+        .btn:hover {
+            background-color: #FFCC43;
+        }
+        .decorative {
+            background: linear-gradient(to bottom right, #1f344d, #2c6566);
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            font-style: italic;
+        }
+        .decorative p {
+            margin: 0;
+        }
+        .decorative h3 {
+            color: #fff;
+            margin-top: 0;
+        }
+        footer {
+            background: linear-gradient(to bottom right, #1f344d, #2c6566);
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        a {
+            color: #EDBF43;
+            text-decoration: none;
+        }
         a:hover {
-            color: #7dd3fc;
             text-decoration: underline;
         }
 
-        /* Navigation */
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(11, 17, 32, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-inner {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 0.9rem 1.25rem;
+        /* Responsive About layout & portrait */
+        .about-content {
             display: flex;
-            flex-wrap: wrap;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
-            gap: 0.75rem 1.5rem;
+            gap: 24px;
         }
-
-        .brand {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #fff;
-            letter-spacing: -0.02em;
-        }
-
-        .brand span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.25rem;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        /* Layout */
-        main {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 2rem 1.25rem 4rem;
-        }
-
-        section {
-            padding: 2.75rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        section:last-of-type {
-            border-bottom: none;
-        }
-
-        h1, h2, h3 {
-            color: #fff;
-            line-height: 1.25;
-            margin-top: 0;
-        }
-
-        h2 {
-            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        /* Hero */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-            padding-top: 1.5rem;
-        }
-
-        .hero-text {
+        .about-text {
             flex: 1;
             min-width: 0;
         }
-
-        .availability {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.3rem 0.75rem;
-            border-radius: 999px;
-            background: rgba(16, 185, 129, 0.14);
-            color: #6ee7b7;
-            font-size: 0.82rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .availability::before {
-            content: "";
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #10b981;
-        }
-
-        .hero h1 {
-            font-size: clamp(1.9rem, 4vw, 2.8rem);
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.03em;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1rem, 1.8vw, 1.15rem);
-            color: var(--muted);
-            max-width: 65ch;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.65rem 1.2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: background-color 0.2s ease, border-color 0.2s ease;
-        }
-
-        .btn-primary {
-            background-color: var(--accent);
-            color: #0b1120;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
-            color: #0b1120;
-            text-decoration: none;
-        }
-
-        .btn-outline {
-            border: 1px solid var(--border);
-            color: var(--text);
-            background: var(--bg-elevated);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--accent);
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .avatar {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--border);
-            flex-shrink: 0;
-        }
-
-        /* Projects */
-        .project-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.75rem;
-        }
-
-        .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-        }
-
-        .card-header {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 0.5rem 1rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .card-header h3 {
-            margin: 0;
-            font-size: 1.25rem;
-        }
-
-        .card-meta {
-            font-size: 0.85rem;
-            color: var(--muted);
-            font-weight: 500;
-        }
-
-        .card p {
-            margin: 0 0 1rem;
-            color: #d1d5db;
-        }
-
-        .card ul {
-            margin: 0 0 1.25rem;
-            padding-left: 1.2rem;
-            color: #d1d5db;
-        }
-
-        .card li {
-            margin-bottom: 0.4rem;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.45rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .tag {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            font-size: 0.78rem;
-            padding: 0.25rem 0.6rem;
-            border-radius: 6px;
-            background: var(--tag-bg);
-            color: var(--accent);
-            border: 1px solid rgba(56, 189, 248, 0.22);
-        }
-
-        .media-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-            gap: 0.9rem;
-            margin: 1rem 0 1.25rem;
-        }
-
-        .media-grid img {
-            width: 100%;
+        .profile-img {
+            width: 200px;
             height: 200px;
             object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            display: block;
-            background: #0b1120;
+            border-radius: 15px;
+            border: 2px solid #EDBF43;
+            flex-shrink: 0;
+        }
+        .cv-cta {
+            text-align: center;
+            padding: 25px 0 10px;
         }
 
+        /* Responsive project media */
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .project-gallery img {
+            width: 100%;
+            height: auto;
+            max-height: 360px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+            background: rgba(0, 0, 0, 0.35);
+        }
         .video-wrapper {
             position: relative;
             width: 100%;
+            max-width: 850px;
             aspect-ratio: 16 / 9;
-            margin: 1rem 0 1.25rem;
-            border-radius: 8px;
+            margin: 20px 0;
+            border-radius: 10px;
             overflow: hidden;
-            border: 1px solid var(--border);
             background: #000;
         }
-
         .video-wrapper iframe {
             width: 100%;
             height: 100%;
             border: 0;
             display: block;
         }
-
-        .card-links {
+        .project-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
-            font-size: 0.92rem;
-            font-weight: 600;
+            gap: 15px 25px;
+            margin-top: 15px;
         }
 
-        /* Skills & Experience Grid */
-        .two-col {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-            gap: 1.25rem;
-        }
-
-        .skill-group h3 {
-            font-size: 1.05rem;
-            margin-bottom: 0.75rem;
-            color: var(--accent);
-        }
-
-        .skill-group ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .skill-group li {
-            margin-bottom: 0.45rem;
-            color: #d1d5db;
-        }
-
-        /* Contact */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-            gap: 1rem;
-        }
-
-        .contact-item {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.1rem 1.25rem;
-        }
-
-        .contact-label {
-            display: block;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--muted);
-            margin-bottom: 0.25rem;
-        }
-
-        .contact-value {
-            font-weight: 600;
-            word-break: break-word;
-        }
-
-        footer {
-            border-top: 1px solid var(--border);
-            text-align: center;
-            padding: 1.75rem 1.25rem;
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 700px) {
-            .hero {
+        /* Mobile Scaling */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 15px;
+            }
+            h1 {
+                padding-right: 0;
+                font-size: 1.6rem;
+                text-align: center;
+            }
+            .tab-bar .tab {
+                padding: 12px 8px;
+                font-size: 95%;
+            }
+            #tab-brief {
+                border-radius: 25px 0px 0px 8px;
+            }
+            #tab-contact {
+                border-radius: 0px 25px 8px 0px;
+            }
+            .panel {
+                margin: 12px;
+                padding: 16px;
+                border-radius: 14px;
+            }
+            .decorative {
+                margin: 12px;
+                padding: 16px;
+            }
+            .about-content {
                 flex-direction: column-reverse;
-                align-items: flex-start;
-                gap: 1.25rem;
+                align-items: center;
             }
-
-            .avatar {
-                width: 96px;
-                height: 96px;
-            }
-
-            .card {
-                padding: 1.15rem;
-            }
-
-            section {
-                padding: 2rem 0;
+            .profile-img {
+                width: 140px;
+                height: 140px;
             }
         }
     </style>
 </head>
 <body>
-    <header class="site-header">
-        <div class="nav-inner">
-            <a class="brand" href="#top">Marko Conic<span>.</span></a>
-            <nav class="nav-links" aria-label="Primary navigation">
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
-            </nav>
+    <header>
+        <h1>MConic Dev</h1>
+        <div class="tab-bar">
+            <div id="tab-brief" class="tab active" onclick="toggleTab('brief')">Profile</div>
+            <div id="tab-projects" class="tab" onclick="toggleTab('projects')">Projects</div>
+            <div id="tab-contact" class="tab" onclick="toggleTab('contact')">Availability &amp; Contact</div>
         </div>
     </header>
 
-    <main id="top">
-        <!-- Hero -->
-        <section class="hero">
-            <div class="hero-text">
-                <div class="availability">Open to Full-Time EU / Remote Roles</div>
-                <h1>Software Engineer &mdash; C++ &amp; .NET</h1>
-                <p class="hero-subtitle">
-                    Software developer based in Serbia (open to relocation) with commercial experience since 2018 across
-                    native C++/Win32/OpenGL desktop tools, Bluetooth hardware telemetry, and C# / ASP.NET backend systems.
-                </p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="#contact">Get in Touch</a>
-                    <a class="btn btn-outline" href="https://github.com/mconicx" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a class="btn btn-outline" href="https://www.linkedin.com/in/mconicdev/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <div class="container">
+
+        <!-- TAB 1: PROFILE -->
+        <section id="brief" class="active">
+            <div class="panel">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I am a software engineer from Serbia (open to EU relocation and remote roles) with commercial development experience since 2018 across native C++ desktop/graphics software and C# / .NET backend systems.</p>
+                        <p>My core focus is building reliable, high-performance applications: low-level C++ tools using Win32, OpenGL, and Dear ImGui, hardware-interfacing telemetry software over Bluetooth/serial protocols, and full-stack web backends powered by ASP.NET, REST APIs, and SQL Server.</p>
+                        <p>Since 2021, I have delivered custom software solutions for international clients via Upwork and direct contracts, alongside on-site commercial development migrating legacy systems to modern cross-platform architectures.</p>
+                    </div>
+                    <img
+                        class="profile-img"
+                        src="https://www.upwork.com/profile-portraits/c1GbFPW91dKeRiW5t1tbuyISqjlQkmNYkHAwprLwUB8hpqrB1IJuCPUZcd8N3OlrdL"
+                        alt="Marko Conic"
+                        onerror="this.style.display='none'"
+                    />
+                </div>
+                <div class="cv-cta">
+                    <a class="btn" href="Marko_Conic_CV.pdf" target="_blank" rel="noopener noreferrer">Download / View CV (PDF)</a>
                 </div>
             </div>
-            <img
-                class="avatar"
-                src="https://www.upwork.com/profile-portraits/c1GbFPW91dKeRiW5t1tbuyISqjlQkmNYkHAwprLwUB8hpqrB1IJuCPUZcd8N3OlrdL"
-                alt="Marko Conic"
-                onerror="this.style.display='none'"
-            >
+
+            <div class="panel">
+                <h2>Experience</h2>
+                <ul>
+                    <li>&bull; <strong>Independent Software Engineer</strong> &mdash; Upwork &amp; Direct Contracts (2018 &ndash; Present)
+                        <br><span style="opacity:0.9;">Built custom C++ native desktop tools, DLL integrations, Bluetooth hardware interfaces, and .NET/SQL applications for international clients.</span>
+                    </li>
+                    <li style="margin-top: 12px;">&bull; <strong>Full-Stack .NET Developer (On-Site)</strong> &mdash; Commercial Web Migration
+                        <br><span style="opacity:0.9;">Audited and documented an undocumented legacy Unity/server backend, then built a cross-platform ASP.NET, MS SQL, REST, and WebGL/HTML5 client.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="panel">
+                <h2>Technical Skills</h2>
+                <ul>
+                    <li>&bull; <strong>C / C++:</strong> Modern C++, OOP, memory management, multithreading, Win32 API, DLLs, GCC/Clang, MSVC</li>
+                    <li>&bull; <strong>Graphics &amp; UI:</strong> OpenGL / OpenGL ES, Dear ImGui, WebGL, WinForms, WPF</li>
+                    <li>&bull; <strong>.NET &amp; Backend:</strong> C#, .NET Core / Framework, ASP.NET (MVC, Razor), REST APIs, Entity Framework</li>
+                    <li>&bull; <strong>Databases:</strong> Microsoft SQL Server, MySQL</li>
+                    <li>&bull; <strong>Mobile &amp; Hardware:</strong> Android SDK (Java), Bluetooth SPP (HC-05/HC-06), Arduino / serial protocols</li>
+                    <li>&bull; <strong>Web &amp; Tooling:</strong> HTML5, CSS3, JavaScript, Git, Linux &amp; Windows environments</li>
+                </ul>
+            </div>
+
+            <div class="panel">
+                <h2>Contact &amp; Profiles</h2>
+                <ul>
+                    <li>E-Mail: <a href="mailto:mconicsb@gmail.com">mconicsb@gmail.com</a></li>
+                    <li>GitHub: <a href="https://github.com/mconicx" target="_blank" rel="noopener noreferrer">github.com/mconicx</a></li>
+                    <li>LinkedIn: <a href="https://www.linkedin.com/in/mconicdev/" target="_blank" rel="noopener noreferrer">linkedin.com/in/mconicdev</a></li>
+                    <li>Upwork: <a href="https://www.upwork.com/freelancers/~018bc3b49c7749cb14" target="_blank" rel="noopener noreferrer">Upwork Profile</a></li>
+                </ul>
+            </div>
         </section>
 
-        <!-- Projects -->
+        <!-- TAB 2: PROJECTS -->
         <section id="projects">
-            <h2>Selected Engineering Work</h2>
-            <div class="project-list">
+            <div class="panel">
+                <h2 id="project-list">Selected Engineering Projects</h2>
+                <ul>
+                    <li>&bull; <a href="#euromag">EUROMAG-3D &mdash; Geophysical Telemetry &amp; 3D Visualization Suite</a></li>
+                    <li>&bull; <a href="#modeler">Native 3D Modeler &amp; Mesh Editor (C++ / OpenGL / Dear ImGui)</a></li>
+                    <li>&bull; <a href="#webmigration">Cross-Platform Web Client &amp; ASP.NET Backend Migration</a></li>
+                </ul>
+            </div>
 
-                <!-- Project 1: EUROMAG-3D -->
-                <article class="card">
-                    <div class="card-header">
-                        <h3>EUROMAG-3D &mdash; Geophysical Telemetry &amp; 3D Visualization</h3>
-                        <span class="card-meta">Commercial Product (Desktop + Android)</span>
-                    </div>
-                    <p>
-                        End-to-end hardware companion software built for geomagnetic terrain surveys. Pairs with handheld
-                        field sensors via Bluetooth serial (HC-05/HC-06) to stream grid measurements in real time and render
-                        interactive 2D/3D subsurface anomaly maps.
-                    </p>
-                    <ul>
-                        <li>Built native Android (Java + OpenGL ES) and Windows desktop clients sharing a custom <code>.mag3d</code> survey file format.</li>
-                        <li>Implemented live Bluetooth packet parsing, configurable grid resolution (rows/columns), dynamic height/color scaling, and palette switching.</li>
-                        <li>Added export pipelines to Excel-compatible spreadsheets and 3D mesh formats for downstream geological analysis.</li>
-                    </ul>
-                    <div class="tags">
-                        <span class="tag">Java (Android SDK)</span>
-                        <span class="tag">OpenGL / OpenGL ES</span>
-                        <span class="tag">Bluetooth SPP</span>
-                        <span class="tag">.NET (Desktop)</span>
-                        <span class="tag">3D Mesh Export</span>
-                    </div>
-                    <div class="media-grid">
-                        <img src="https://www.upwork.com/att/download/portfolio/persons/uid/1396960422523744256/profile/projects/files/4312f388-b839-4069-a1e8-295b08f0543c" alt="EUROMAG-3D sensor device and Android app" loading="lazy" onerror="this.style.display='none'">
-                        <img src="https://www.upwork.com/att/download/portfolio/persons/uid/1396960422523744256/profile/projects/files/a23f0b53-adde-410f-ae1c-8b0f156f311c" alt="EUROMAG-3D desktop visualization" loading="lazy" onerror="this.style.display='none'">
-                        <img src="https://www.upwork.com/att/download/portfolio/persons/uid/1396960422523744256/profile/projects/files/189319b5-a5c9-4081-b7c4-e6c43b4e761f" alt="EUROMAG-3D modern desktop interface" loading="lazy" onerror="this.style.display='none'">
-                    </div>
-                    <div class="card-links">
-                        <a href="https://www.youtube.com/channel/UChC59t85vqJqcGGTLG0iKqg" target="_blank" rel="noopener noreferrer">Android Demo (YouTube) &rarr;</a>
-                        <a href="https://www.upwork.com/freelancers/~018bc3b49c7749cb14?p=1453743983640113152" target="_blank" rel="noopener noreferrer">Case Study on Upwork &rarr;</a>
-                    </div>
-                </article>
+            <div class="panel">
+                <p id="euromag"><a href="#project-list">&uarr; Back to projects list</a></p>
+                <h2>EUROMAG-3D &mdash; Geophysical Telemetry &amp; 3D Visualization</h2>
+                <h3>Stack: OpenGL / OpenGL ES, .NET, Java (Android SDK), Bluetooth SPP</h3>
+                <p>
+                    Commercial companion software built for geomagnetic field research devices to detect underground anomalies
+                    such as water tables, cavities, and mineral deposits. Both Windows desktop and Android applications pair
+                    with handheld hardware via Bluetooth serial (HC-05/HC-06) to stream sensor coordinates and magnetic readings
+                    into real-time interactive 2D/3D terrain grids.
+                </p>
+                <ul>
+                    <li>&bull; Implemented a custom <code>.mag3d</code> survey file format supporting save/load across sessions.</li>
+                    <li>&bull; Built live OpenGL 3D mesh and 2D heatmap rendering with configurable grid dimensions, color palettes, height/color scaling, and rotation sensitivity.</li>
+                    <li>&bull; Added export pipelines to Excel-compatible sheets and 3D mesh files for external analysis.</li>
+                </ul>
+                <div class="project-gallery">
+                    <img src="https://www.upwork.com/att/download/portfolio/persons/uid/1396960422523744256/profile/projects/files/4312f388-b839-4069-a1e8-295b08f0543c" alt="EUROMAG-3D hardware sensor and Android app" loading="lazy" onerror="this.style.display='none'" />
+                    <img src="https://www.upwork.com/att/download/portfolio/persons/uid/1396960422523744256/profile/projects/files/a23f0b53-adde-410f-ae1c-8b0f156f311c" alt="EUROMAG-3D desktop visualization" loading="lazy" onerror="this.style.display='none'" />
+                    <img src="https://www.upwork.com/att/download/portfolio/persons/uid/1396960422523744256/profile/projects/files/189319b5-a5c9-4081-b7c4-e6c43b4e761f" alt="EUROMAG-3D modern desktop version" loading="lazy" onerror="this.style.display='none'" />
+                </div>
+                <div class="project-links">
+                    <a class="btn" href="https://www.youtube.com/channel/UChC59t85vqJqcGGTLG0iKqg" target="_blank" rel="noopener noreferrer">Android Demo (YouTube)</a>
+                    <a class="btn" href="https://www.upwork.com/freelancers/~018bc3b49c7749cb14?p=1453743983640113152" target="_blank" rel="noopener noreferrer">Project Details (Upwork)</a>
+                </div>
+            </div>
 
-                <!-- Project 2: C++ 3D Modeler -->
-                <article class="card">
-                    <div class="card-header">
-                        <h3>Native 3D Modeler &amp; Mesh Editor</h3>
-                        <span class="card-meta">C++ / Graphics Engineering</span>
-                    </div>
-                    <p>
-                        Lightweight, offline-first 3D mesh modeling tool written from scratch in native C++ without third-party
-                        game engines, targeting 3D printing, CAD inspection, and fast viewport manipulation.
-                    </p>
-                    <ul>
-                        <li>Engineered custom rendering pipeline and viewport controls directly on OpenGL with immediate-mode UI via Dear ImGui.</li>
-                        <li>Designed for low memory overhead, responsive interaction, and modular geometry processing.</li>
-                    </ul>
-                    <div class="tags">
-                        <span class="tag">C++</span>
-                        <span class="tag">OpenGL</span>
-                        <span class="tag">Dear ImGui</span>
-                        <span class="tag">3D Geometry</span>
-                    </div>
-                    <div class="video-wrapper">
-                        <iframe
-                            src="https://www.youtube.com/embed/mCA---R7dTQ"
-                            title="Native C++ OpenGL 3D Modeler Demonstration"
-                            loading="lazy"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="card-links">
-                        <a href="https://www.youtube.com/watch?v=mCA---R7dTQ" target="_blank" rel="noopener noreferrer">Watch on YouTube &rarr;</a>
-                    </div>
-                </article>
+            <div class="panel">
+                <p id="modeler"><a href="#project-list">&uarr; Back to projects list</a></p>
+                <h2>Native 3D Modeler &amp; Mesh Editor</h2>
+                <h3>Stack: C++, OpenGL, Dear ImGui</h3>
+                <p>
+                    Lightweight, offline-first 3D modeling and mesh inspection application written from scratch in native C++
+                    without third-party game engines. Designed for 3D printing workflows, technical inspection, and fast,
+                    low-overhead viewport interaction.
+                </p>
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.youtube.com/embed/mCA---R7dTQ"
+                        title="Native C++ OpenGL 3D Modeler Demonstration"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="project-links">
+                    <a class="btn" href="https://www.youtube.com/watch?v=mCA---R7dTQ" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+                </div>
+            </div>
 
-                <!-- Project 3: On-Site Web Migration -->
-                <article class="card">
-                    <div class="card-header">
-                        <h3>Cross-Platform Web Client &amp; ASP.NET Backend Migration</h3>
-                        <span class="card-meta">On-Site Commercial Role</span>
-                    </div>
-                    <p>
-                        Replaced a platform-locked Unity client with a universal web application backed by ASP.NET and
-                        Microsoft SQL Server, enabling browser play across desktop and mobile devices.
-                    </p>
-                    <ul>
-                        <li>Reverse-engineered and documented an undocumented legacy game server and Unity client codebase.</li>
-                        <li>Implemented ASP.NET MVC / Razor views, REST API endpoints, and Entity Framework / MS SQL data persistence.</li>
-                        <li>Built dual rendering modes supporting both 3D WebGL and lightweight 2D SVG/HTML5 vector graphics.</li>
-                    </ul>
-                    <div class="tags">
-                        <span class="tag">C#</span>
-                        <span class="tag">ASP.NET / Razor</span>
-                        <span class="tag">MS SQL Server</span>
-                        <span class="tag">Entity Framework</span>
-                        <span class="tag">REST API</span>
-                        <span class="tag">JavaScript / WebGL</span>
-                    </div>
-                </article>
-
+            <div class="panel">
+                <p id="webmigration"><a href="#project-list">&uarr; Back to projects list</a></p>
+                <h2>Cross-Platform Web Client &amp; ASP.NET Backend Migration</h2>
+                <h3>Stack: C#, ASP.NET, Razor Views, MS SQL Server, Entity Framework, REST API, JavaScript, WebGL</h3>
+                <p>
+                    On-site commercial project replacing a platform-restricted Unity client with a multi-platform browser
+                    application connected to an ASP.NET and MS SQL backend.
+                </p>
+                <ul>
+                    <li>&bull; Audited and reverse-engineered an undocumented legacy server and Unity client, producing full technical documentation for the backend logic.</li>
+                    <li>&bull; Implemented ASP.NET / Razor Views, REST API endpoints, and Entity Framework database persistence.</li>
+                    <li>&bull; Built dual client rendering supporting both 3D WebGL and lightweight 2D HTML5 vector graphics.</li>
+                </ul>
             </div>
         </section>
 
-        <!-- Experience -->
-        <section id="experience">
-            <h2>Experience</h2>
-            <div class="two-col">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Independent Software Developer</h3>
-                        <span class="card-meta">2018 &ndash; Present</span>
-                    </div>
-                    <p>
-                        Delivering custom Windows desktop tools, C++/C# applications, hardware integrations, and backend
-                        services for international clients via Upwork (since 2021) and direct contracts (since 2018).
-                    </p>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Full-Stack .NET Developer (On-Site)</h3>
-                        <span class="card-meta">Commercial Project Role</span>
-                    </div>
-                    <p>
-                        Audited legacy Unity/server architecture, authored internal server documentation, and delivered a
-                        cross-platform ASP.NET, MS SQL, REST, and WebGL/HTML5 client.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills -->
-        <section id="skills">
-            <h2>Technical Skills</h2>
-            <div class="two-col">
-                <div class="card skill-group">
-                    <h3>Native &amp; Systems (C / C++)</h3>
-                    <ul>
-                        <li>C++ (OOP, RAII, memory management, multithreading)</li>
-                        <li>Win32 API, DLLs, native desktop architecture</li>
-                        <li>OpenGL / OpenGL ES, Dear ImGui</li>
-                        <li>Linux &amp; Windows development (GCC, Clang, MSVC, Git)</li>
-                    </ul>
-                </div>
-                <div class="card skill-group">
-                    <h3>Backend, Mobile &amp; Data (.NET / Java)</h3>
-                    <ul>
-                        <li>C#, .NET Core / .NET Framework, ASP.NET, REST APIs</li>
-                        <li>Microsoft SQL Server, MySQL, Entity Framework</li>
-                        <li>Android SDK (Java), Bluetooth SPP hardware comms</li>
-                        <li>HTML5, CSS3, JavaScript, Razor Views, WebGL</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact -->
+        <!-- TAB 3: AVAILABILITY & CONTACT -->
         <section id="contact">
-            <h2>Contact</h2>
-            <p style="color: var(--muted); margin-bottom: 1.25rem;">
-                Available for full-time engineering positions (EU relocation or remote) as well as select B2B / Upwork engagements.
-            </p>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <span class="contact-label">Email</span>
-                    <a class="contact-value" href="mailto:mconicsb@gmail.com">mconicsb@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">GitHub</span>
-                    <a class="contact-value" href="https://github.com/mconicx" target="_blank" rel="noopener noreferrer">github.com/mconicx</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">LinkedIn</span>
-                    <a class="contact-value" href="https://www.linkedin.com/in/mconicdev/" target="_blank" rel="noopener noreferrer">linkedin.com/in/mconicdev</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">Upwork</span>
-                    <a class="contact-value" href="https://www.upwork.com/freelancers/~018bc3b49c7749cb14" target="_blank" rel="noopener noreferrer">Upwork Profile</a>
-                </div>
+            <div class="panel">
+                <h2>Availability &amp; Collaboration</h2>
+                <p>
+                    I am currently open to <strong>full-time engineering roles</strong> (remote within Europe or relocation with work-permit sponsorship),
+                    as well as select <strong>B2B and Upwork contracts</strong> in C++ desktop/systems development and .NET backend engineering.
+                </p>
+                <p>
+                    Based in Serbia (CET timezone) and fluent in English, I work comfortably with distributed teams, existing codebases,
+                    and clear technical specifications.
+                </p>
+                <br />
+                <ul>
+                    <li>&bull; <strong>Direct Email:</strong> <a href="mailto:mconicsb@gmail.com">mconicsb@gmail.com</a></li>
+                    <li>&bull; <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mconicdev/" target="_blank" rel="noopener noreferrer">linkedin.com/in/mconicdev</a></li>
+                    <li>&bull; <strong>GitHub:</strong> <a href="https://github.com/mconicx" target="_blank" rel="noopener noreferrer">github.com/mconicx</a></li>
+                    <li>&bull; <strong>Upwork Direct Contract:</strong> <a href="https://www.upwork.com/freelancers/~018bc3b49c7749cb14" target="_blank" rel="noopener noreferrer">View Upwork Profile</a></li>
+                </ul>
             </div>
         </section>
-    </main>
+
+    </div>
+
+    <div class="decorative">
+        <h3>Native Performance &amp; Reliable Backend Engineering</h3>
+        <p>C++ &bull; OpenGL &bull; .NET / C# &bull; SQL &mdash; Commercial software development since 2018</p>
+    </div>
 
     <footer>
-        <p>&copy; 2026 Marko Conic. Built with clean HTML &amp; CSS.</p>
+        <p>&copy; 2026 Marko Conic. All rights reserved.</p>
     </footer>
+
+    <script>
+        function updatePanelVisibility() {
+            const panels = document.querySelectorAll('.panel');
+            panels.forEach(panel => {
+                if (panel.parentElement.classList.contains('active')) {
+                    panel.style.display = 'block';
+                } else {
+                    panel.style.display = 'none';
+                }
+            });
+        }
+
+        function toggleTab(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(sec => {
+                sec.classList.toggle('active', sec.id === sectionId);
+            });
+
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.toggle('active', tab.id === 'tab-' + sectionId);
+            });
+
+            updatePanelVisibility();
+        }
+
+        updatePanelVisibility();
+    </script>
 </body>
 </html>
